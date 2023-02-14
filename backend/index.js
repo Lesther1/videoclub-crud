@@ -17,7 +17,7 @@ const connectionOptions =
 app.use(express.json());
 
 mongoose.set('strictQuery', true)
-mongoose.connect("mongodb+srv://karen:contrase%C3%B1a@cluster0.bko6piz.mongodb.net/videoclub")
+mongoose.connect("mongodb+srv://yochi22:Marcador22@cluster0.jzbl6wm.mongodb.net/videoclub")
   .then(() => console.log("conxion bien, que crack eres karen"))
   .catch((err) => console.error(err));
 
