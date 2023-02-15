@@ -10,15 +10,15 @@ const todoRoutes = require("./routes/todoRoutes");
 const connectionOptions =
 {
   useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useFindAndModify: false
+  useNewUrlParser: true
 };
 
 app.use(express.json());
 
+
 mongoose.set('strictQuery', true)
-mongoose.connect("mongodb+srv://yochi22:Marcador22@cluster0.jzbl6wm.mongodb.net/videoclub")
-  .then(() => console.log("conxion bien, que crack eres karen"))
+mongoose.connect("mongodb+srv://yochi22:Marcador22@cluster0.jzbl6wm.mongodb.net/videoclub", connectionOptions)
+  .then(() => console.log("conexion bien, que crack eres karen"))
   .catch((err) => console.error(err));
 
 app.use("/movies", todoRoutes);

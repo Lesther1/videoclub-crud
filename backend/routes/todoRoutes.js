@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Movie = require("../models/Movie");
 const moment = require('moment');
 
+
 router.get("/", (req, res) => {
   Movie.find((err, result) => {
     if (err) throw new Error(err);
@@ -28,15 +29,14 @@ router.get('/:id', (req, res) => {
     if (err) throw new Error(err);
 
     const movie = result.toObject();
-    movie.releaseDate = moment(movie.releaseDate).format('DD/MM/YYYY');
+    movie.movie.mov_dt_rel = moment(movie.movie.mov_dt_rel).format('DD/MM/YYYY');
 
     res.json(movie);
   });
 });
 
 router.put("/:id", (req, res) => {
-  Movie.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, result) => {
-    if (err) throw new Error(err);
+Movie.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, result) => {    if (err) throw new Error(err);
     res.json(result);
   });
 });
